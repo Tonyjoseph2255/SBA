@@ -1,0 +1,166 @@
+                                          Sba1
+1,package Day13_ass;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class q1 {
+
+	public static void main(String[] args) {
+		ArrayList<Double>al=new ArrayList<Double>();
+		al.add(12.2);
+		al.add(15.5);
+		al.add(7.5);
+		al.add(17.5);
+		Collections.sort(al, Collections.reverseOrder());
+		System.out.println(al);
+	}
+
+}
+op
+[17.5, 15.5, 12.2, 7.5]
+2,package Day13_ass;
+
+import java.util.ArrayList;
+
+public class q2 {
+
+	public static void main(String[] args) {
+	ArrayList<Integer>al=new ArrayList<Integer>();
+	al.add(5);
+	al.add(6);
+	al.add(8);
+	 double sum = 0;
+	 double avg;
+
+     for (int i=0;i<al.size();i++){
+         sum += al.get(i);
+     }
+
+     System.out.println(sum);
+     avg=sum/al.size();
+     System.out.println(avg);
+	}
+
+}
+op
+19.0
+6.333333333333333
+3,package Day13_ass;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+public class q3 {
+
+	public static void main(String[] args) {
+	ArrayList<String>f_name=new ArrayList<String>();
+	ArrayList<String>l_name=new ArrayList<String>();
+	Scanner sc= new Scanner(System.in);
+	System.out.println("enter the number of student");
+	int n=sc.nextInt();
+	for(int i=0;i<n;i++) {
+		System.out.println("enter the first_name of student");
+		f_name.add(sc.next());
+		System.out.println("enter the last_name of student");
+		l_name.add(sc.next());
+		
+	}for(int i=0;i<n;i++) {
+		System.out.println("full_name of the student"+f_name.get(i)+l_name.get(i));
+	}
+	}
+}
+op
+enter the number of student
+2
+enter the first_name of student
+amal
+enter the last_name of student
+joseph
+enter the first_name of student
+jesu
+enter the last_name of student
+abhraham
+full_name of the studentamaljoseph
+full_name of the studentjesuabhraham
+4,package Day8Asi;
+
+import java.util.Scanner;
+
+public class Occurance {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String a=sc.next();
+		System.out.println("enter a charater that present in the string");
+		char b=(char) sc.next().charAt(0);
+		int count=0;
+		for(int i=0;i<a.length();i++) {
+			if(a.charAt(i)==b)
+				count++;
+		}
+		System.out.println(count);
+	}
+
+}
+op
+appu
+enter a charater that present in the string
+p
+2
+5,package Day8Asi;
+import java.util.Scanner;
+
+
+public class Palindrome {
+	static boolean isPalindrome(String str1)
+	{
+		char[] arr1=str1.toCharArray();
+		char[] rev=new char[arr1.length];
+		for(int i=arr1.length-1,j=0;i>=0;i--)
+		{
+			rev[j]=arr1[i];
+			j++;
+		}
+		String newStr=new String(rev);
+		return str1.equalsIgnoreCase(newStr);
+	}	
+
+
+	public static void main(String[] args) {
+		 System.out.println("Enter a String");
+		 Scanner sc=new Scanner(System.in);
+			String str=sc.nextLine();
+        String strArray[] = str.split(" ");
+
+        System.out.println("String : " + str);
+        System.out.println("String array : [ ");
+        for (int i = 0; i < strArray.length; i++) {
+            System.out.print(strArray[i] + ", ");
+        }
+        System.out.print("]"+"\n"); 
+        
+       for(String s:strArray)
+        {
+        	if(isPalindrome(s))
+        	{
+        		 System.out.println(s+" is a Palindrome");     }   	
+        
+        else
+        {
+        	 System.out.println(s+" is not a Palindrome");
+
+	}
+
+        }
+	}
+}
+op
+Enter a String
+nibin
+String : nibin
+String array : [ 
+nibin, ]
+nibin is a Palindrome
