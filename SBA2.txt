@@ -1,0 +1,163 @@
+                         SBA2
+package Day13_ass;
+
+
+import java.util.*;
+
+public class q4 {
+
+	public static void main(String[] args) {
+		Book B1=new Book("junglebook","mongli",2007,125);
+		Book B2=new Book("harrypotter","harri",1952,155);
+		Book B3=new Book("age of ultron","marvel",2009,185);
+		ArrayList<Book>al=new ArrayList<Book>();
+		al.add(B1);
+		al.add(B2);
+		al.add(B3);
+		Iterator itr=al.iterator();
+		while(itr.hasNext()) {
+			Book st=(Book)itr.next();
+			System.out.println(st.name+" "+st.aut_name+" "+st.year+" "+st.copies);
+					
+		}
+	}
+
+}
+class Book{
+	String name;
+	String aut_name;
+	int year;
+	int copies;
+	Book(String name,String aut_name,int year,int copies){
+		this.name=name;
+		this.aut_name=aut_name;
+		this.year=year;
+		this.copies=copies;
+	}
+}
+op
+junglebook mongli 2007 125
+harrypotter harri 1952 155
+age of ultron marvel 2009 185
+2,package Day14_Ass;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Q1 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		try{
+			File f=new File("C:Asmnt1.txt");
+			if(f.createNewFile()) {
+				System.out.println("file "+f.getName()+" created successfully");
+				if(f.canWrite()) {
+					System.out.println("Ready to write...");
+					FileWriter fwrite=new FileWriter("C:Asmnt1.txt");
+					String content=sc.nextLine();
+					fwrite.write(content);
+					fwrite.close();
+					System.out.println("Content is successfully wrote to the file."); 
+				}
+				else {
+					System.out.println("Can't write in the file");
+				}
+				if(f.canRead()) {
+					System.out.println("Reading from file...");
+					Scanner fread=new Scanner(f);
+					while(fread.hasNextLine()) {
+						String fileData=fread.nextLine();
+						System.out.println(fileData);
+					}
+					fread.close();
+				}
+				else {
+					System.out.println("Failed to reading from file");
+				}
+			}
+			else if(f.exists()){
+				System.out.println("file name already exists");
+				System.out.println("Press 1 to delete the existing file");
+				int dltcmd=sc.nextInt();
+				if(dltcmd==1) {
+					if(f.delete()) {
+						System.out.println("File deleted...Restart the program");
+					}
+					else {
+						System.out.println("Failed to delete the file");
+					}
+				}
+			}
+			else {
+				System.out.println("Can't create the file");
+			}
+		}
+		catch(IOException e) {
+			System.out.println(e);
+		}
+		sc.close();
+
+	}
+
+}
+op
+file Asmnt1.txt created successfully
+Ready to write...
+monster
+Content is successfully wrote to the file.
+Reading from file...
+monster
+3,package Day14_Ass;
+
+import java.io.File;
+
+public class Q2 {
+
+	public static void main(String[] args) {
+		File f=new File("C:Asmnt1.txt");
+		if(f.exists()) {
+			System.out.println("File name is "+f.getName());
+			System.out.println("Absolute path is "+f.getAbsolutePath());
+			System.out.println("Is the file readable? "+f.canRead());
+			System.out.println("Is the file writeable? "+f.canWrite());
+			System.out.println("The file size in bytes is "+f.length());	
+		}
+		else {
+			System.out.println("The file does not exist.");
+		}
+
+	}
+
+}
+op
+File name is Asmnt1.txt
+Absolute path is C:\Users\franc\eclipse-workspace\JavaTraining\Asmnt1.txt
+Is the file readable? true
+Is the file writeable? true
+The file size in bytes is 7
+4,package sba2;
+import java.io.FileReader;
+import java.io.IOException;
+public class Q4 {
+public static void main(String[] args) {
+try
+{
+int i;
+FileReader fr= new FileReader("E:example2.txt");
+while((i=fr.read())!=-1)
+{
+System.out.print((char)i);
+}
+fr.close();
+} catch(IOException e)
+{
+System.out.println(e);
+}
+}
+}
+}
+op
+itali
